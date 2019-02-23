@@ -1,0 +1,27 @@
+{
+  "name": "picture-in-picture",
+  "version": "0.0.1",
+  "description": "Create a floating video window that is always on top of other windows so that users may continue consuming media while they interact with others parts in your aplication/site",
+  "main": "PictureInPicture.vue",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whoamindc/picture-in-picture.git"
+  },
+  "author": "whoamindx@gmail.com",
+  "license": "ISC",
+  "keywords": [
+    "Vue.js",
+    "GitHub",
+    "Picture-in-Picture",
+    "Media",
+    "Open Source",
+    "Components Web",
+    "Video",
+    "Float",
+    "Dragging"
+  ],
+  "bugs": {
+    "url": "https://github.com/whoamindc/picture-in-picture/issues"
+  },
+  "homepage": "https://github.com/whoamindc/picture-in-picture#readme"
+}
