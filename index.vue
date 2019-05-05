@@ -1,5 +1,8 @@
 <template>
-  <video-picture-in-picture></video-picture-in-picture>
+  <video-picture-in-picture
+   id="wJ01HfpTgOo"
+   youtube
+    ></video-picture-in-picture>
 </template>
 
 <script>
