@@ -22,34 +22,34 @@ div.style.color = 'blue'
 document.body.appendChild(div)
 
 div.addEventListener('mousedown', event => {
-    isDown = true
-    offset = [
-        div.offsetLeft - event.clientX,
-        div.offsetTop - event.clientY
-    ]
+  isDown = true
+  offset = [
+    div.offsetLeft - event.clientX,
+    div.offsetTop - event.clientY
+  ]
 })
 
 document.addEventListener('mouseup', () => {
-    isDown = false
+  isDown = false
 })
 
 document.addEventListener('mousemove', event => {
-    event.preventDefault()
-    if (isDown) {
-        mousePosition = {
-            x: event.clientX,
-            y: event.clientY
-        }
-
-        let left = (mousePosition.x + offset[0])
-        let top = (mousePosition.y + offset[1])
-
-        //if (left >= 0 && left <= (document.body.offsetWidth))
-          div.style.left = `${left}px`
-          
-        //if (top >= 0 && top <= document.body.offsetWidth)
-          div.style.top = `${top}px`
+  event.preventDefault()
+  if (isDown) {
+    mousePosition = {
+      x: event.clientX,
+      y: event.clientY
     }
+
+    let left = (mousePosition.x + offset[0])
+    let top = (mousePosition.y + offset[1])
+
+    if (left >= 0 && left <= (document.body.offsetWidth))
+      div.style.left = `${left}px`
+
+    if (top >= 0 && top <= document.body.offsetWidth)
+      div.style.top = `${top}px`
+  }
 })
 
 
