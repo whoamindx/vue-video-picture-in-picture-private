@@ -1,11 +1,14 @@
 <template>
   <div>
-    <div class="layer"></div>
-    <div v-if="youtube">
-      <iframe src="https://www.youtube.com/embed/wJ01HfpTgOo" :width="width" :height="height" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-    <div v-else-if="vimeo">
-      <iframe src="https://player.vimeo.com/video/97475086" :width="width" :height="height" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    <slot></slot>
+    <div id="video" v-if="slotClicked">
+      <div class="layer"></div>
+      <div v-if="youtube">
+        <iframe src="https://www.youtube.com/embed/wJ01HfpTgOo" :width="width" :height="height" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div v-else-if="vimeo">
+        <iframe src="https://player.vimeo.com/video/97475086" :width="width" :height="height" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      </div>
     </div>
   </div>
 </template>
@@ -28,17 +31,28 @@ export default {
   },
   data() {
     return {
-      floatWrapperCtrl: undefined
+      floatWrapperCtrl: undefined,
+      slotClicked: false
     }
   },
   methods: {
   },
   mounted() {
-    this.floatWrapper = new floatWrapperCtrl(
-      this.width,
-      this.height,
-      this.$el
-    )
+    this.$slots.default[0].elm.addEventListener('click', () => {
+      if(!window['float-wrapper-picture-in-picture'])
+        this.slotClicked = true
+    })
+  },
+  watch: {
+    slotClicked() {
+      setTimeout(() => {
+        this.floatWrapperCtrl = new floatWrapperCtrl(
+          this.width,
+          this.height,
+          this.$el
+        )
+      }, 100)
+    }
   }
 }
 </script>

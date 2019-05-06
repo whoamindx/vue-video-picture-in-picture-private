@@ -23,7 +23,7 @@ export default class floatWrapperCtrl {
 
     document.body.appendChild(div)
 
-    div.appendChild(node)
+    div.appendChild(node.querySelector('#video'))
 
     div.addEventListener('mousedown', event => {
       isDown = true

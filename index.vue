@@ -1,8 +1,19 @@
 <template>
+  <div>
   <video-picture-in-picture
    id="wJ01HfpTgOo"
    youtube
-    ></video-picture-in-picture>
+   >
+    <p>Click here to open</p>
+  </video-picture-in-picture>
+  
+  <video-picture-in-picture
+   id="wJ01HfpTgOo"
+   youtube
+  >
+    <span>Click here to open</span>
+  </video-picture-in-picture>
+  </div>
 </template>
 
 <script>
