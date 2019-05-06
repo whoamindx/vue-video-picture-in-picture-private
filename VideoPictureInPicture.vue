@@ -51,7 +51,7 @@ export default {
           this.height,
           this.$el
         )
-      }, 1)
+      }, 100)
     }
   }
 }
@@ -62,5 +62,8 @@ export default {
     position: absolute;
     width: 100%;
     height: 100%;
+  }
+  #video {
+    position: absolute;
   }
 </style>
