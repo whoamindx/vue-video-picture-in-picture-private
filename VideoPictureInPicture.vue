@@ -51,7 +51,7 @@ export default {
           this.height,
           this.$el
         )
-      }, 100)
+      }, 1)
     }
   }
 }
