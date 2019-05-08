@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/whoamindc/vue-picture-in-picture#readme",
   "devDependencies": {
+    "@vue/cli": "^3.7.0",
     "@vue/cli-service-global": "^3.4.1"
   },
   "scripts": {
