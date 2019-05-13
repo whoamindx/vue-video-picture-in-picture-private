@@ -33,11 +33,13 @@ export default class floatWrapperCtrl {
       ]
     })
 
-    document.addEventListener('mouseup', () => {
+    const up = () => {
+      debugger
       isDown = false
-    })
+    }
+    document.addEventListener('mouseup', up)
 
-    document.addEventListener('mousemove', event => {
+    const move = event => {
       event.preventDefault()
       if (isDown) {
         mousePosition = {
@@ -54,7 +56,9 @@ export default class floatWrapperCtrl {
         if (top >= 0 && top <= (window.innerHeight - this.height))
           div.style.top = `${top}px`
       }
-    })
+    }
+
+    document.addEventListener('mousemove', move)
   }
 
 }
