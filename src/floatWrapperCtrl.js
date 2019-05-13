@@ -34,7 +34,6 @@ export default class floatWrapperCtrl {
     })
 
     const up = () => {
-      debugger
       isDown = false
     }
     document.addEventListener('mouseup', up)
