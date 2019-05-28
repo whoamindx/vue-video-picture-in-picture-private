@@ -1,10 +1,8 @@
 export default class floatWrapperCtrl {
   constructor (width, height, node) {
-    if(!window['float-wrapper-picture-in-picture']) {
       this.width = width
       this.height = height
       this.createFloatWrapper(node)
-    }
   }
 
   createFloatWrapper(node) {
@@ -13,8 +11,12 @@ export default class floatWrapperCtrl {
     let div
     let isDown = false
 
+    const wrapper = window['float-wrapper-picture-in-picture']
+
+    if(wrapper) wrapper.parentNode.removeChild(wrapper)
+      
     div = document.createElement('div')
-    div.id = "float-wrapper-picture-in-picture"
+    div.id = 'float-wrapper-picture-in-picture'
     div.style.position = 'fixed'
     div.style.left = '0px'
     div.style.top = '0px'

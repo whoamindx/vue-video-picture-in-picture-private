@@ -39,10 +39,12 @@ export default {
   methods: {
   },
   mounted() {
-    this.$slots.default[0].elm.addEventListener('click', () => {
-      if(!window['float-wrapper-picture-in-picture'])
-        this.slotClicked = true
-    })
+    this.$slots.default[0].elm.addEventListener('click', () => this.slotClicked ? (
+          this.floatWrapperCtrl.createFloatWrapper(this.$el)
+        ) : (
+          this.slotClicked = true
+        )
+    )
   },
   watch: {
     slotClicked() {
