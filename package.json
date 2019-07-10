@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "Create a floating video window that is always on top of other windows so that users may continue consuming media while they interact with others parts in your aplication/site",
   "main": "PictureInPicture.vue",
+  "scripts": {
+    "start": "vue serve index.vue"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/whoamindc/picture-in-picture.git"
@@ -27,8 +30,5 @@
   "devDependencies": {
     "@vue/cli": "^3.7.0",
     "@vue/cli-service-global": "^3.4.1"
-  },
-  "scripts": {
-    "start": "vue serve index.vue"
   }
 }

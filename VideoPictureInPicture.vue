@@ -1,12 +1,14 @@
 <template>
   <div>
-    <slot></slot>
+    <div @click="openVideo">
+      <slot></slot>
+    </div>
     <div id="video" v-if="slotClicked">
       <div class="layer"></div>
-      <div v-if="youtube">
+      <div v-if="provider === 'youtube'">
         <iframe :src="'https://www.youtube.com/embed/'+id" :width="width" :height="height" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
-      <div v-else-if="vimeo">
+      <div v-else-if="provider === 'vimeo'">
         <iframe :src="'https://player.vimeo.com/video/'+id" :width="width" :height="height" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
       </div>
     </div>
@@ -18,9 +20,8 @@ import floatWrapperCtrl from './src/floatWrapperCtrl'
 
 export default {
   props: {
-    youtube: Boolean,
     id: String,
-    vimeo: Boolean,
+    provider: String,
     width: {
       type: Number,
       default: 320
@@ -37,14 +38,15 @@ export default {
     }
   },
   methods: {
+    openVideo() {
+      if (this.slotClicked) {
+        this.floatWrapperCtrl.createFloatWrapper(this.$el)
+        return
+      }
+      this.slotClicked = true
+    }
   },
   mounted() {
-    this.$slots.default[0].elm.addEventListener('click', () => this.slotClicked ? (
-          this.floatWrapperCtrl.createFloatWrapper(this.$el)
-        ) : (
-          this.slotClicked = true
-        )
-    )
   },
   watch: {
     slotClicked() {
@@ -60,7 +62,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .layer {
     position: absolute;
     width: 100%;

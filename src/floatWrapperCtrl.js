@@ -14,7 +14,7 @@ export default class floatWrapperCtrl {
     const wrapper = window['float-wrapper-picture-in-picture']
 
     if(wrapper) wrapper.parentNode.removeChild(wrapper)
-      
+
     div = document.createElement('div')
     div.id = 'float-wrapper-picture-in-picture'
     div.style.position = 'fixed'
